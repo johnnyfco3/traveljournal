@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import NavBar from './Components/NavBar';
+import Content from './Components/Content';
+import locationData from './data';
 
 function App() {
+  const page = locationData.map((element, key)=>{
+    return <Content key={key}
+              element={element}/>
+  })
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <div className='page'>
+        {page}
+      </div>
     </div>
   );
 }
